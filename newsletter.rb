@@ -28,13 +28,15 @@ ARTICLES = [
 #########################
 
 def calculate_recipients
-  #destructive
-  UNSUBSCRIBED.each do |email|
-    if SUBSCRIBERS.include? email
-      SUBSCRIBERS.delete(email)
+  recipients = []
+  SUBSCRIBERS.each do |email|
+    if UNSUBSCRIBED.include? email
+      
+    else
+      recipients << email
     end
   end
-  SUBSCRIBERS
+  recipients
 end
 
 def first_n_articles(number_of_articles)
