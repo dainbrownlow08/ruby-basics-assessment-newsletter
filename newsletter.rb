@@ -30,9 +30,7 @@ ARTICLES = [
 def calculate_recipients
   recipients = []
   SUBSCRIBERS.each do |email|
-    if UNSUBSCRIBED.include? email
-      
-    else
+    unless UNSUBSCRIBED.include? email
       recipients << email
     end
   end
@@ -78,7 +76,7 @@ def format_subject
 end
 
 def format_footer(campus)
-  "\n" + "Flatiron Newsletter · #{campus[:name]} · #{campus[:address]} "
+  "\nFlatiron Newsletter · #{campus[:name]} · #{campus[:address]} "
 end
 
 def print_newsletter(number)
